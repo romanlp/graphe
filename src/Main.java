@@ -1,4 +1,6 @@
 import graph.GraphTools;
+import graph.IUndirectedGraph;
+import graph.impl.AdjacencyListUndirectedGraph;
 
 /**
  * Created by Roman on 27/01/2015.
@@ -6,6 +8,11 @@ import graph.GraphTools;
 public class Main {
 
     public static void main(String[] args) {
-        GraphTools.show(GraphTools.generateGraphData(20,108,true));
+        int[][] tab1 = GraphTools.generateGraphData(6, 8, true);
+        GraphTools.show(tab1);
+
+        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(tab1);
+
+        GraphTools.show(graph1.toAdjacencyMatrix());
     }
 }
