@@ -75,14 +75,14 @@ public class AdjacencyListUndirectedGraph implements IUndirectedGraph {
     @Override
     public int getNbNodes() {
 
-        return this.node.size();
+        return this.node.size()-1;
     }
 
     @Override
     public int[][] toAdjacencyMatrix() {
-        int[][] matrice = new int[this.getNbNodes()-1][this.getNbNodes()-1];
+        int[][] matrice = new int[this.getNbNodes()][this.getNbNodes()];
 
-        for (int i = 0; i < this.getNbNodes()-1; i++) {
+        for (int i = 0; i < this.getNbNodes(); i++) {
             for (int elem : this.getNeighbors(i)){
                 matrice[i][elem] = 1;
             }
