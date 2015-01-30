@@ -20,6 +20,14 @@ public class AdjacencyListUndirectedGraphTest {
     private int[][] tab2;
     private int[][] tab3;
 
+    int[][] matrice1 =
+            {
+                    { 0, 1, 1, 1 } ,
+                    { 1, 0, 0, 0 } ,
+                    { 1, 0, 0, 1 } ,
+                    { 1, 0, 1, 0 } ,
+            };
+
     @Before
     public void setUp() throws Exception {
         this.tab1 = GraphTools.generateGraphData(nbNode1, nbEdges1, true);
@@ -40,8 +48,27 @@ public class AdjacencyListUndirectedGraphTest {
     }
 
     @Test
+    public void testConstructeur() throws Exception {
+        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.tab1);
+        IUndirectedGraph graph2 = new AdjacencyListUndirectedGraph(this.tab2);
+        IUndirectedGraph graph3 = new AdjacencyListUndirectedGraph(this.matrice1);
+
+        IUndirectedGraph graphCopy1 = new AdjacencyListUndirectedGraph(graph1);
+        IUndirectedGraph graphCopy2 = new AdjacencyListUndirectedGraph(graph2);
+        IUndirectedGraph graphCopy3 = new AdjacencyListUndirectedGraph(graph3);
+
+        assertArrayEquals(this.tab1, graphCopy1.toAdjacencyMatrix());
+        assertArrayEquals(this.tab2, graphCopy2.toAdjacencyMatrix());
+        assertArrayEquals(matrice1, graphCopy3.toAdjacencyMatrix());
+
+    }
+
+    @Test
     public void testIsEdge() throws Exception {
         IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.tab1);
+
+
+
     }
 
     @Test
@@ -56,6 +83,16 @@ public class AdjacencyListUndirectedGraphTest {
 
     @Test
     public void testGetNeighbors() throws Exception {
+
+        IUndirectedGraph graph = new AdjacencyListUndirectedGraph(matrice1);
+
+        assertEquals(1, graph.getNeighbors(1).length);
+        int [] test = {0};
+        assertArrayEquals(test, graph.getNeighbors(1));
+
+        assertEquals(3, graph.getNeighbors(0).length);
+        int [] test2 = {1,2,3};
+        assertArrayEquals(test2, graph.getNeighbors(0));
 
     }
 
