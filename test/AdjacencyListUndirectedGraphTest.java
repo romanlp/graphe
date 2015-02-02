@@ -65,20 +65,37 @@ public class AdjacencyListUndirectedGraphTest {
 
     @Test
     public void testIsEdge() throws Exception {
-        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.tab1);
+        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.matrice1);
 
-
+        for (int x = 0 ; x < matrice1.length-1 ; x++){
+            for (int y = 0 ; y < matrice1.length-1 ; y++){
+                assertEquals(this.matrice1[x][y] == 1, graph1.isEdge(x,y));
+            }
+        }
 
     }
 
     @Test
     public void testRemoveEdge() throws Exception {
+        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.matrice1);
+
+        assertEquals(true, graph1.isEdge(0,1));
+
+        graph1.removeEdge(0,1);
+
+        assertEquals(false, graph1.isEdge(0, 1));
 
     }
 
     @Test
     public void testAddEdge() throws Exception {
+        IUndirectedGraph graph1 = new AdjacencyListUndirectedGraph(this.matrice1);
 
+        assertEquals(false, graph1.isEdge(1,3));
+
+        graph1.addEdge(1,3);
+
+        assertEquals(true, graph1.isEdge(1,3));
     }
 
     @Test

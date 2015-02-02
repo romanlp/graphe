@@ -3,7 +3,7 @@ package graph;
 /**
  * Created by Roman on 27/01/2015.
  */
-public interface IDirectedGraph {
+public interface IDirectedGraph extends IGraph{
 
     public int getNbArcs();
 
