@@ -216,4 +216,8 @@ public class AdjacencyListDirectedGraph implements IDirectedGraph {
         listSucc.set(listSucc.size() - 1, null);
         return new AdjacencyListDirectedGraph(listNode, listSucc);
     }
+
+    public void explorerGraphe(){
+
+    }
 }
