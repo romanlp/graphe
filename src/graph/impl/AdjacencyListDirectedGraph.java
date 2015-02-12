@@ -1,7 +1,6 @@
 package graph.impl;
 
 import graph.IDirectedGraph;
-import graph.IUndirectedGraph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -217,7 +216,4 @@ public class AdjacencyListDirectedGraph implements IDirectedGraph {
         return new AdjacencyListDirectedGraph(listNode, listSucc);
     }
 
-    public void explorerGraphe(){
-
-    }
 }
