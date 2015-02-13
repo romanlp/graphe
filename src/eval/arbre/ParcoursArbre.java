@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * COMPLEXITE : O(n)
+ * On passe une fois a travers tous les sommets. La complexité est linéaire
  * Created by Roman on 13/02/2015.
  */
 public class ParcoursArbre {
